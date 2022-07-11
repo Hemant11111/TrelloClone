@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import "./AddTask.css";
 import TaskModel from "../../../model/Task";
@@ -14,39 +14,38 @@ export default function AddTaskComponent(props: AddTaskComponentProps) {
 
     const dispatch = useDispatch();
 
-    const [newTaskTitle, setNEwTaskTitle] = useState<string>("");
+    const [title, setTitle] = useState<string>("");
+    
+    const handleNewTaskValueChange  = useCallback((event: any) => {
+        setTitle(event.target.value);
+    }, [setTitle]);
 
-
-    function handleNewTaskValueChange(event: any) {
-        setNEwTaskTitle(event.target.value);
-    }
-
-
-    function handleAddNewTask() {
-        const newTask = TaskModel.newInstance(newTaskTitle, props.cardId)
-        setNEwTaskTitle("");
+    const handleAddNewTask = useCallback(() => {
+        const newTask = TaskModel.newInstance(title, props.cardId)
+        setTitle("");
 
         dispatch(createTaskThunk(newTask));
-    }
+    }, [title])
 
-    function handleTaskCreate(e: any) {
+
+    const handleTaskCreate = useCallback((e: any) => {
         handleAddNewTask();
         e.preventDefault();
-    }
+    }, [title]);
 
     return (
         <div className="add-task-container">
             <InputForm
                 className="add-task-input"
                 placeholder="Add Task..."
-                value={newTaskTitle}
+                value={title}
                 onSubmit={handleTaskCreate}
                 onChange={handleNewTaskValueChange}
             />
             <button
                 onClick={handleAddNewTask}
                 className="add-task-button trello-icon-button"
-                disabled={!newTaskTitle}
+                disabled={!title}
             ><i className="fa fa-plus"/>
             </button>
         </div>

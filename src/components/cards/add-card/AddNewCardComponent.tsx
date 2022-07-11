@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 
 import "./AddNewCard.css";
@@ -12,11 +12,9 @@ export default function AddNewCardComponent(props: AddNewCardComponentProps) {
 
     const dispatch = useDispatch();
 
-
-    function handleAddCardClick() {
+    const handleAddCardClick = useCallback(() =>  {
         dispatch(createDummyNewCardThunk());
-    }
-
+    }, []);
 
     return (
         <div className="add-new-card-container">

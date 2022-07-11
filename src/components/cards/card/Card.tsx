@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import "./Card.css";
@@ -22,39 +22,40 @@ export default function CardComponent(
 
     const [_newCardTitle, setNewCardTitle] = useState(title);
 
-    function handleCardDelete() {
+    const handleCardDelete = useCallback(() => {
         if (window.confirm("Are you sure, you wants to delete this Card?")) {
             dispatch(deleteCardThunk(id));
         }
-    }
+    }, []);
 
-    function _udpateCard(card: CardModel){
+    function _udpateCard(card: CardModel) {
         dispatch(editCardThunk(card));
     }
 
-    function handleDoubleClick() {
+    const handleDoubleClick = useCallback(() => {
         _udpateCard({...card, updating: true});
-    }
+    }, []);
 
-    function handleTitleChange(e: any) {
+
+    const handleTitleChange = useCallback((e: any) => {
         setNewCardTitle(e.target.value)
-    }
+    }, [setNewCardTitle]);
 
-    function handleTitleUpdate(e: any) {
+    const handleTitleUpdate = useCallback((e: any) => {
         _udpateCard({...card, title: _newCardTitle, updating: false});
         e.preventDefault();
-    }
+    }, [_newCardTitle]);
 
 
-    function handleDrop(event: any) {
+    const handleDrop = useCallback((event: any) => {
         event.preventDefault();
         const taskId = event.dataTransfer.getData("taskId");
         dispatch(taskMovedToAnotherCardThunk(taskId, id));
-    }
+    }, []);
 
-    function handleDragOver(event: any) {
+    const handleDragOver = useCallback((event: any) => {
         event.preventDefault();
-    }
+    }, []);
 
 
     return (

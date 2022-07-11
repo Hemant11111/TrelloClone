@@ -11,7 +11,7 @@ interface ListCardComponentProps {
     cardId: string
 }
 
-export default function ListTaskComponent(props: ListCardComponentProps) {
+function ListTaskComponent(props: ListCardComponentProps) {
 
     const tasks = useSelector(getTaskListByCardId(props.cardId));
 
@@ -32,3 +32,5 @@ export default function ListTaskComponent(props: ListCardComponentProps) {
         </div>
     )
 }
+
+export default React.memo(ListTaskComponent);

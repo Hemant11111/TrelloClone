@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import "./Task.css";
@@ -23,29 +23,29 @@ export default function TaskComponent(props: TaskComponentProps) {
         dispatch(editTaskThunk(task));
     }
 
-
-    function handleDelete() {
+    const handleDelete = useCallback(() => {
         if (window.confirm("Are you sure, you wants to delete this task?")) {
             dispatch(deleteTaskThunk(id));
         }
-    }
+    }, []);
 
-    function handleEdit() {
+    const handleEdit = useCallback(() => {
         _updateTask({...task, updating: true});
-    }
+    }, [task]);
 
-    function handleUpdate() {
+    const handleUpdate = useCallback(() => {
         _updateTask({...task, title: _taskTitle, updating: false});
-    }
+    }, [task]);
 
-
-    function handleTaskChange(e: any) {
+    const handleTaskChange = useCallback((e: any) => {
         setTaskTitle(e.target.value);
-    }
+    }, []);
 
-    function handleDragStart(event: any) {
+
+    const handleDragStart = useCallback((event: any) => {
         event.dataTransfer.setData("taskId", id);
-    }
+    }, [])
+
 
     return (
         <div className="card task-container" draggable={true} onDragStart={handleDragStart}>
