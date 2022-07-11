@@ -1,10 +1,11 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+
 import "./Card.css";
 import CardModel from "../../../model/Card";
 import ListTaskComponent from "../../task/list-task/ListTaskComponent";
-import { useState } from "react";
 import InputForm from "../../../shared-components/input-form/InputForm";
 import { taskMovedToAnotherCardThunk } from "../../../redux/thunk/task.thunk";
-import { useDispatch } from "react-redux";
 import { deleteCardThunk, editCardThunk } from "../../../redux/thunk/card.thunk";
 
 interface CardComponentProps {
@@ -76,7 +77,9 @@ export default function CardComponent(
                 <ListTaskComponent cardId={id}/>
             </div>
 
-            <button className="card-dlt-button" onClick={handleCardDelete}>Delete</button>
+            <button className="card-dlt-button" onClick={handleCardDelete}>
+                <i className="fa fa-remove"/> Delete
+            </button>
         </div>
     )
 }
