@@ -27,7 +27,7 @@ export default function ListTaskComponent(props: ListCardComponentProps) {
     }
 
     return (
-        <>
+        <div className="task-list-container">
             {
                 tasks.map((task: TaskModel) => {
                     return (
@@ -42,6 +42,6 @@ export default function ListTaskComponent(props: ListCardComponentProps) {
             }
 
             <AddTaskComponent cardId={props.cardId}/>
-        </>
+        </div>
     )
 }

@@ -35,8 +35,12 @@ export default function TaskComponent(props: TaskComponentProps) {
         setTaskTitle(e.target.value);
     }
 
+    function handleDragStart(event: any) {
+        event.dataTransfer.setData("taskId", id);
+    }
+
     return (
-        <div className="card task-container">
+        <div className="card task-container" draggable={true} onDragStart={handleDragStart}>
             {
                 updating ? (
                     <InputForm

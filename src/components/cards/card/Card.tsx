@@ -3,6 +3,8 @@ import CardModel from "../../../model/Card";
 import ListTaskComponent from "../../task/list-task/ListTaskComponent";
 import { useState } from "react";
 import InputForm from "../../../shared-components/input-form/InputForm";
+import { taskMovedToAnotherCardThunk } from "../../../redux/thunk/task.thunk";
+import { useDispatch } from "react-redux";
 
 interface CardComponentProps {
     card: CardModel;
@@ -17,6 +19,8 @@ export default function CardComponent(
         onCardDelete,
         onCardUpdate
     }: CardComponentProps) {
+
+    const dispatch = useDispatch();
 
     const [_newCardTitle, setNewCardTitle] = useState(title);
 
@@ -37,8 +41,20 @@ export default function CardComponent(
         e.preventDefault();
     }
 
+
+    function handleDrop(event: any) {
+        event.preventDefault();
+        const taskId = event.dataTransfer.getData("taskId");
+        dispatch(taskMovedToAnotherCardThunk(taskId, id));
+    }
+
+    function handleDragOver(event: any) {
+        event.preventDefault();
+    }
+
+
     return (
-        <div className="card card-container">
+        <div className="card card-container" onDrop={handleDrop} onDragOver={handleDragOver}>
             {updating ?
                 (
                     <InputForm

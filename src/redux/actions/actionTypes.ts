@@ -5,3 +5,5 @@ export const DELETE_TASK = 'DELETE_TASK';
 export const CREATE_CARD = 'CREATE_CARD';
 export const EDIT_CARD = 'EDIT_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
+
+export const TASK_MOVED = 'TASK_MOVED';
