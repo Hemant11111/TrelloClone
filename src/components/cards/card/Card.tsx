@@ -25,7 +25,9 @@ export default function CardComponent(
     const [_newCardTitle, setNewCardTitle] = useState(title);
 
     function handleCardDelete() {
-        onCardDelete(id);
+        if (window.confirm("Are you sure, you wants to delete this Card?")) {
+            onCardDelete(id);
+        }
     }
 
     function handleDoubleClick() {

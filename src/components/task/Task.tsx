@@ -19,7 +19,9 @@ export default function TaskComponent(props: TaskComponentProps) {
 
 
     function handleDelete() {
-        onDelete(id);
+        if (window.confirm("Are you sure, you wants to delete this task?")) {
+            onDelete(id);
+        }
     }
 
     function handleEdit() {
@@ -56,14 +58,14 @@ export default function TaskComponent(props: TaskComponentProps) {
             <div className="task-action-container">
                 {updating ? (
                     <button
-                        className="trello-icon-button task-save"
+                        className="trello-icon-button"
                         onClick={handleUpdate}
                         disabled={!_taskTitle}
                     >
                         <i className="fa fa-save"/>
                     </button>
                 ) : (
-                    <button className="trello-icon-button task-edit" onClick={handleEdit}>
+                    <button className="trello-icon-button" onClick={handleEdit}>
                         <i className="fa fa-edit"/>
                     </button>
                 )}
