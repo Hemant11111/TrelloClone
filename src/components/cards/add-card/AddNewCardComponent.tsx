@@ -18,7 +18,7 @@ export default function AddNewCardComponent(props: AddNewCardComponentProps) {
     const [newCardTitle, setNewCardTitle] = useState("");
 
 
-    function handleADDCardClick() {
+    function handleAddCardClick() {
         setIsAddingNewCard(v => !v);
     }
 
@@ -59,7 +59,9 @@ export default function AddNewCardComponent(props: AddNewCardComponentProps) {
                 )
             }
 
-            <button className="add-new-card-btn" onClick={handleADDCardClick}>+</button>
+            <button className="add-new-card-btn" onClick={handleAddCardClick}>
+                <i className="fa fa-plus"/>
+            </button>
         </div>
     )
 }

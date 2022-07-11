@@ -1,35 +1,41 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import "./Task.css";
 import TaskModel from "../../model/Task";
 import InputForm from "../../shared-components/input-form/InputForm";
+import { deleteTaskThunk, editTaskThunk } from "../../redux/thunk/task.thunk";
 
 
 interface TaskComponentProps {
     task: TaskModel;
-    onDelete: (taskId: string) => void;
-    onUpdate: (task: TaskModel) => void;
 }
 
 export default function TaskComponent(props: TaskComponentProps) {
 
-    const {task, task: {id, title, updating}, onDelete, onUpdate} = props;
+    const {task, task: {id, title, updating}} = props;
 
     const [_taskTitle, setTaskTitle] = useState(title);
+
+    const dispatch = useDispatch();
+
+    function _updateTask(task: TaskModel) {
+        dispatch(editTaskThunk(task));
+    }
 
 
     function handleDelete() {
         if (window.confirm("Are you sure, you wants to delete this task?")) {
-            onDelete(id);
+            dispatch(deleteTaskThunk(id));
         }
     }
 
     function handleEdit() {
-        onUpdate({...task, updating: true});
+        _updateTask({...task, updating: true});
     }
 
     function handleUpdate() {
-        onUpdate({...task, title: _taskTitle, updating: false});
+        _updateTask({...task, title: _taskTitle, updating: false});
     }
 
 

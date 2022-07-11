@@ -5,19 +5,16 @@ import { useState } from "react";
 import InputForm from "../../../shared-components/input-form/InputForm";
 import { taskMovedToAnotherCardThunk } from "../../../redux/thunk/task.thunk";
 import { useDispatch } from "react-redux";
+import { deleteCardThunk, editCardThunk } from "../../../redux/thunk/card.thunk";
 
 interface CardComponentProps {
     card: CardModel;
-    onCardDelete: (cardId: string) => void;
-    onCardUpdate: (card: CardModel) => void;
 }
 
 export default function CardComponent(
     {
         card: {id, title, updating},
-        card,
-        onCardDelete,
-        onCardUpdate
+        card
     }: CardComponentProps) {
 
     const dispatch = useDispatch();
@@ -26,12 +23,16 @@ export default function CardComponent(
 
     function handleCardDelete() {
         if (window.confirm("Are you sure, you wants to delete this Card?")) {
-            onCardDelete(id);
+            dispatch(deleteCardThunk(id));
         }
     }
 
+    function _udpateCard(card: CardModel){
+        dispatch(editCardThunk(card));
+    }
+
     function handleDoubleClick() {
-        onCardUpdate({...card, updating: true});
+        _udpateCard({...card, updating: true});
     }
 
     function handleTitleChange(e: any) {
@@ -39,7 +40,7 @@ export default function CardComponent(
     }
 
     function handleTitleUpdate(e: any) {
-        onCardUpdate({...card, title: _newCardTitle, updating: false});
+        _udpateCard({...card, title: _newCardTitle, updating: false});
         e.preventDefault();
     }
 

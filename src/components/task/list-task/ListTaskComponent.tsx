@@ -1,12 +1,11 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getTaskListByCardId } from "../../../redux/selectors/task.selector";
+import { useSelector } from "react-redux";
 
 import "./ListTask.css";
 import TaskModel from "../../../model/Task";
 import TaskComponent from "../Task";
 import AddTaskComponent from "../add-task/AddTaskComponent";
-import { deleteTaskThunk, editTaskThunk } from "../../../redux/thunk/task.thunk";
+import { getTaskListByCardId } from "../../../redux/selectors/task.selector";
 
 interface ListCardComponentProps {
     cardId: string
@@ -15,16 +14,6 @@ interface ListCardComponentProps {
 export default function ListTaskComponent(props: ListCardComponentProps) {
 
     const tasks = useSelector(getTaskListByCardId(props.cardId));
-    const dispatch = useDispatch();
-
-    function handleTaskUpdate(task: TaskModel) {
-        dispatch(editTaskThunk(task));
-    }
-
-
-    function handleTaskDelete(taskId: string) {
-        dispatch(deleteTaskThunk(taskId));
-    }
 
     return (
         <div className="task-list-container">
@@ -33,9 +22,7 @@ export default function ListTaskComponent(props: ListCardComponentProps) {
                     return (
                         <TaskComponent
                             key={`task-${task.id}`}
-                            onDelete={handleTaskDelete}
                             task={task}
-                            onUpdate={handleTaskUpdate}
                         />
                     )
                 })

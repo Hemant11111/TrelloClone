@@ -15,7 +15,6 @@ function App() {
             <div className="app-container">
                 <ListCardComponent/>
             </div>
-
         </div>
     );
 }
