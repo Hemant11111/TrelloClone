@@ -60,13 +60,17 @@ export default function TaskComponent(props: TaskComponentProps) {
                         onClick={handleUpdate}
                         disabled={!_taskTitle}
                     >
-                        Save
+                        <i className="fa fa-save"/>
                     </button>
                 ) : (
-                    <button className="trello-icon-button task-edit" onClick={handleEdit}>E</button>
+                    <button className="trello-icon-button task-edit" onClick={handleEdit}>
+                        <i className="fa fa-edit"/>
+                    </button>
                 )}
 
-                <button className="trello-icon-button task-delete" onClick={handleDelete}>X</button>
+                <button className="trello-icon-button task-delete" onClick={handleDelete}>
+                    <i className="fa fa-remove"/>
+                </button>
             </div>
         </div>
     )

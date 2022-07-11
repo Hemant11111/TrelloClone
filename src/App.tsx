@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './App.css';
+import 'font-awesome/css/font-awesome.min.css';
 import HeaderComponent from "./components/header/Header";
 import ListCardComponent from "./components/cards/list-cards/ListCardComponent";
 
