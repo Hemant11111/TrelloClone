@@ -14,12 +14,12 @@
 }
 
 .card-dlt-button {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     background: transparent;
     border: solid 1px red;
     cursor: pointer;
 }
 
 .card-tasks-container {
-    margin-top: 1rem;
+    margin-top: 2rem;
 }

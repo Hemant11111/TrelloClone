@@ -45,7 +45,7 @@ export default function AddTaskComponent(props: AddTaskComponentProps) {
             />
             <button
                 onClick={handleAddNewTask}
-                className="add-task-button"
+                className="add-task-button trello-icon-button"
                 disabled={!newTaskTitle}
             >+
             </button>

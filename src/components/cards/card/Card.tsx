@@ -43,7 +43,7 @@ export default function CardComponent(
                 (
                     <InputForm
                         className=""
-                        placeholder="Add new card"
+                        placeholder="Add card title..."
                         onChange={handleTitleChange}
                         onSubmit={handleTitleUpdate}
                         value={_newCardTitle}
