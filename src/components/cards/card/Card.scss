@@ -1,0 +1,26 @@
+.card-container {
+  margin-right: 1rem;
+  padding: 1rem;
+  background: #d9def9;
+  width: 250px;
+
+
+  .card-title {
+    font-weight: bold;
+  }
+
+  .card-tasks-container {
+    margin-top: 2rem;
+  }
+
+  .card-dlt-button {
+    margin-top: 1.5rem;
+    background: transparent;
+    border: solid 1px red;
+    cursor: pointer;
+  }
+}
+
+
+
+

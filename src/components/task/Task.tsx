@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import "./Task.css";
+import "./Task.scss";
 import TaskModel from "../../model/Task";
 import InputForm from "../../shared-components/input-form/InputForm";
 import { deleteTaskThunk, editTaskThunk } from "../../redux/thunk/task.thunk";
@@ -55,7 +55,6 @@ export default function TaskComponent(props: TaskComponentProps) {
                         onChange={handleTaskChange}
                         onSubmit={handleUpdate}
                         value={_taskTitle}
-                        className=""
                         placeholder="Add Task..."
                     />
                 ) : _taskTitle

@@ -23,7 +23,7 @@ export function editTaskAction(task: TaskModel) {
 }
 
 
-export function taskMovedToAnotherCardAction(taskId: string, cardId :string) {
+export function taskMovedToAnotherCardAction(taskId: string, cardId: string) {
     return {
         type: TASK_MOVED, taskId, cardId
     }

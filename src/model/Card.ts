@@ -8,7 +8,7 @@ export default class CardModel extends Model {
     tasks: TaskModel[] | undefined;
 
     // Backend logic...
-    static newInstance(title: string){
+    static newInstance(title: string) {
         const instance = new this(StringUtil.generateRandomString(6));
         instance.title = title;
         return instance;

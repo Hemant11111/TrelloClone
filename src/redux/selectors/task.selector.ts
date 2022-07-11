@@ -17,6 +17,6 @@ export const getTaskList = createSelector(getAllTaskList, tasks => {
     return tasks.filter(task => !task.deleted)
 });
 
-export const getTaskListByCardId = (id: string) => createSelector(getAllTaskList,  tasks => {
+export const getTaskListByCardId = (id: string) => createSelector(getAllTaskList, tasks => {
     return tasks.filter(task => !task.deleted && task.cardId === id)
 });

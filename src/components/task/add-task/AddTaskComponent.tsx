@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 
-import "./AddTask.css";
+import "./AddTask.scss";
 import TaskModel from "../../../model/Task";
 import { useDispatch } from "react-redux";
 import { createTaskThunk } from "../../../redux/thunk/task.thunk";
@@ -15,8 +15,8 @@ export default function AddTaskComponent(props: AddTaskComponentProps) {
     const dispatch = useDispatch();
 
     const [title, setTitle] = useState<string>("");
-    
-    const handleNewTaskValueChange  = useCallback((event: any) => {
+
+    const handleNewTaskValueChange = useCallback((event: any) => {
         setTitle(event.target.value);
     }, [setTitle]);
 
@@ -36,7 +36,6 @@ export default function AddTaskComponent(props: AddTaskComponentProps) {
     return (
         <div className="add-task-container">
             <InputForm
-                className="add-task-input"
                 placeholder="Add Task..."
                 value={title}
                 onSubmit={handleTaskCreate}

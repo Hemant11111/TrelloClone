@@ -1,4 +1,9 @@
-import { createTaskAction, deleteTaskAction, editTaskAction, taskMovedToAnotherCardAction } from "../actions/task.action";
+import {
+    createTaskAction,
+    deleteTaskAction,
+    editTaskAction,
+    taskMovedToAnotherCardAction
+} from "../actions/task.action";
 import TaskModel from "../../model/Task";
 
 export const createTaskThunk: any = (task: TaskModel) => async function (dispatch: any, state: any) {

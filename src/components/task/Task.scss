@@ -1,0 +1,23 @@
+.task-container {
+  cursor: pointer;
+
+  background: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .task-action-container {
+    display: flex;
+    align-items: center;
+
+    .task-delete {
+      background: transparent;
+      border: none;
+      color: red;
+    }
+  }
+}

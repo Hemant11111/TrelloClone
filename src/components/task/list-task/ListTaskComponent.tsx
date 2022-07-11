@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import "./ListTask.css";
+import "./ListTask.scss";
 import TaskModel from "../../../model/Task";
 import TaskComponent from "../Task";
 import AddTaskComponent from "../add-task/AddTaskComponent";

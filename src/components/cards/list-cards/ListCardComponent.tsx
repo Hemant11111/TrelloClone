@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 
-import "./ListCard.css";
+import "./ListCard.scss";
 import CardModel from "../../../model/Card";
 import CardComponent from "../card/Card";
 import AddNewCardComponent from "../add-card/AddNewCardComponent";

@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import "./Card.css";
+import "./Card.scss";
 import CardModel from "../../../model/Card";
 import ListTaskComponent from "../../task/list-task/ListTaskComponent";
 import InputForm from "../../../shared-components/input-form/InputForm";
@@ -63,7 +63,6 @@ export default function CardComponent(
             {updating ?
                 (
                     <InputForm
-                        className=""
                         placeholder="Add card title..."
                         onChange={handleTitleChange}
                         onSubmit={handleTitleUpdate}
