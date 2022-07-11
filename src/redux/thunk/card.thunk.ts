@@ -15,3 +15,9 @@ export const editCardThunk: any = (card: CardModel) => async function (dispatch:
     // Call API
     dispatch(editCardAction(card));
 }
+
+export const createDummyNewCardThunk: any = (card?: CardModel) => async function (dispatch: any, state: any) {
+    // Call API
+    const newCard = CardModel.newInstance("New card");
+    dispatch(createCardAction({...newCard, ...card}));
+}
