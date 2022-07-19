@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Task Component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="card task-container"
+    draggable="true"
+  >
+    test-task
+    <div
+      class="task-action-container"
+    >
+      <button
+        class="trello-icon-button"
+        data-testid="task-edit-button"
+      >
+        <i
+          class="fa fa-edit"
+        />
+      </button>
+      <button
+        class="trello-icon-button task-delete"
+        data-testid="task-remove-button"
+      >
+        <i
+          class="fa fa-remove"
+        />
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

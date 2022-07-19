@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import { ROOT_STORE_TYPE } from "../../store/storeType";
+import { ROOT_STORE_TYPE } from "../store/storeType";
 
 export const getCardReducer = (store: ROOT_STORE_TYPE) => {
     return store.cardReducer;

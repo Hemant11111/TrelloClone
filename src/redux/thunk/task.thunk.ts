@@ -7,7 +7,10 @@ import {
 import TaskModel from "../../model/Task";
 
 export const createTaskThunk: any = (task: TaskModel) => async function (dispatch: any, state: any) {
-    // Call API
+    const {cardReducer: {cards}} = state();
+    if (!cards[task.cardId]) {
+        return;
+    }
     dispatch(createTaskAction(task));
 }
 
@@ -22,6 +25,14 @@ export const editTaskThunk: any = (task: TaskModel) => async function (dispatch:
 }
 
 export const taskMovedToAnotherCardThunk: any = (taskId: string, cardId: string) => async function (dispatch: any, state: any) {
-    // Call API
-    dispatch(taskMovedToAnotherCardAction(taskId, cardId));
+    const {cardReducer: {cards}, taskReducer: {tasks}} = state();
+    if (!cards[cardId]) {
+        return;
+    }
+
+    const task = tasks[taskId];
+    if (task.cardId === cardId) {
+        return;
+    }
+    dispatch(taskMovedToAnotherCardAction(taskId, task.cardId, cardId));
 }

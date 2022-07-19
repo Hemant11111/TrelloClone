@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="header"
+  >
+    <h2>
+      Trello-Clone
+    </h2>
+    <button>
+      Sign out
+    </button>
+  </div>
+</DocumentFragment>
+`;

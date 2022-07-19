@@ -2,8 +2,8 @@ import React from 'react';
 
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
-import HeaderComponent from "./components/header/Header";
-import ListCardComponent from "./components/cards/list-cards/ListCardComponent";
+import HeaderComponent from "../header/Header";
+import ListCardComponent from "../cards/list-cards/ListCardComponent";
 
 function App() {
     return (

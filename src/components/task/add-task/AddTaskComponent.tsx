@@ -42,6 +42,7 @@ export default function AddTaskComponent(props: AddTaskComponentProps) {
                 onChange={handleNewTaskValueChange}
             />
             <button
+                data-testid="add-task-button"
                 onClick={handleAddNewTask}
                 className="add-task-button trello-icon-button"
                 disabled={!title}

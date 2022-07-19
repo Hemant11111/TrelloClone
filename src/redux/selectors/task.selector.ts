@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import { ROOT_STORE_TYPE } from "../../store/storeType";
+import { ROOT_STORE_TYPE } from "../store/storeType";
 
 export const getTaskReducer = (rootStore: ROOT_STORE_TYPE) => {
     return rootStore.taskReducer;
@@ -17,6 +17,6 @@ export const getTaskList = createSelector(getAllTaskList, tasks => {
     return tasks.filter(task => !task.deleted)
 });
 
-export const getTaskListByCardId = (id: string) => createSelector(getAllTaskList, tasks => {
-    return tasks.filter(task => !task.deleted && task.cardId === id)
+export const getTaskListByCardId = (cardId: string) => createSelector(getAllTaskList, tasks => {
+    return tasks.filter(task => !task.deleted && task.cardId === cardId)
 });

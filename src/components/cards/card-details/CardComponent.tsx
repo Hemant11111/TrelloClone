@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import "./Card.scss";
+import "./CardComponent.scss";
 import CardModel from "../../../model/Card";
 import ListTaskComponent from "../../task/list-task/ListTaskComponent";
 import InputForm from "../../../shared-components/input-form/InputForm";
@@ -77,7 +77,7 @@ export default function CardComponent(
                 <ListTaskComponent cardId={id}/>
             </div>
 
-            <button className="card-dlt-button" onClick={handleCardDelete}>
+            <button data-testid="btn-card-delete" className="card-dlt-button" onClick={handleCardDelete}>
                 <i className="fa fa-remove"/> Delete
             </button>
         </div>

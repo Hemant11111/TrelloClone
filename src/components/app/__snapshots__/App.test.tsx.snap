@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering App component should render app component wrapped in provider 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      class="header"
+    >
+      <h2>
+        Trello-Clone
+      </h2>
+      <button>
+        Sign out
+      </button>
+    </div>
+    <div
+      class="app-container"
+    >
+      <div
+        class="card card-container"
+      >
+        <span
+          class="card-title"
+        >
+          Default card
+        </span>
+        <div
+          class="card-tasks-container"
+        >
+          <div
+            class="task-list-container"
+          >
+            <div
+              class="add-task-container"
+            >
+              <form
+                class="custom-form"
+              >
+                <input
+                  class=" input-form"
+                  placeholder="Add Task..."
+                  value=""
+                />
+              </form>
+              <button
+                class="add-task-button trello-icon-button"
+                data-testid="add-task-button"
+                disabled=""
+              >
+                <i
+                  class="fa fa-plus"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+        <button
+          class="card-dlt-button"
+          data-testid="btn-card-delete"
+        >
+          <i
+            class="fa fa-remove"
+          />
+           Delete
+        </button>
+      </div>
+      <div
+        class="add-new-card-container"
+      >
+        <button
+          class="add-new-card-btn"
+          data-testid="add-new-card-button"
+        >
+          <i
+            class="fa fa-plus"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

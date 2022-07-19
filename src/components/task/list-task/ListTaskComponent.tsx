@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import "./ListTask.scss";
 import TaskModel from "../../../model/Task";
-import TaskComponent from "../Task";
+import TaskComponent from "../task-details/TaskComponent";
 import AddTaskComponent from "../add-task/AddTaskComponent";
 import { getTaskListByCardId } from "../../../redux/selectors/task.selector";
 

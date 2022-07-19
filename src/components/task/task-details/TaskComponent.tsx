@@ -2,9 +2,9 @@ import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import "./Task.scss";
-import TaskModel from "../../model/Task";
-import InputForm from "../../shared-components/input-form/InputForm";
-import { deleteTaskThunk, editTaskThunk } from "../../redux/thunk/task.thunk";
+import TaskModel from "../../../model/Task";
+import InputForm from "../../../shared-components/input-form/InputForm";
+import { deleteTaskThunk, editTaskThunk } from "../../../redux/thunk/task.thunk";
 
 
 interface TaskComponentProps {
@@ -63,6 +63,7 @@ export default function TaskComponent(props: TaskComponentProps) {
             <div className="task-action-container">
                 {updating ? (
                     <button
+                        data-testid="task-save-button"
                         className="trello-icon-button"
                         onClick={handleUpdate}
                         disabled={!_taskTitle}
@@ -70,12 +71,16 @@ export default function TaskComponent(props: TaskComponentProps) {
                         <i className="fa fa-save"/>
                     </button>
                 ) : (
-                    <button className="trello-icon-button" onClick={handleEdit}>
+                    <button
+                        data-testid="task-edit-button"
+                        className="trello-icon-button" onClick={handleEdit}>
                         <i className="fa fa-edit"/>
                     </button>
                 )}
 
-                <button className="trello-icon-button task-delete" onClick={handleDelete}>
+                <button
+                    data-testid="task-remove-button"
+                    className="trello-icon-button task-delete" onClick={handleDelete}>
                     <i className="fa fa-remove"/>
                 </button>
             </div>

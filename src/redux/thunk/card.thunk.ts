@@ -2,7 +2,10 @@ import { createCardAction, deleteCardAction, editCardAction } from "../actions/c
 import CardModel from "../../model/Card";
 
 export const createCardThunk: any = (card: CardModel) => async function (dispatch: any, state: any) {
-    // Call API
+
+    // const cardService = new CardService();
+    // const response = await cardService.createCard(card);
+
     dispatch(createCardAction(card));
 }
 

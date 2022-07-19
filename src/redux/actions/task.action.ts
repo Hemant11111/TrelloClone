@@ -1,5 +1,5 @@
 import TaskModel from "../../model/Task";
-import { CREATE_TASK, DELETE_TASK, EDIT_TASK, TASK_MOVED } from "./actionTypes";
+import { CREATE_TASK, DELETE_TASK, EDIT_TASK, MOVE_TASK } from "./actionTypes";
 
 export function createTaskAction(task: TaskModel) {
     return {
@@ -23,8 +23,8 @@ export function editTaskAction(task: TaskModel) {
 }
 
 
-export function taskMovedToAnotherCardAction(taskId: string, cardId: string) {
+export function taskMovedToAnotherCardAction(taskId: string, fromCardId: string, toCardId: string) {
     return {
-        type: TASK_MOVED, taskId, cardId
+        type: MOVE_TASK, taskId, fromCardId, toCardId
     }
 }

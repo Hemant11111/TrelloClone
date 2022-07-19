@@ -2,9 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 
-import "./ListCard.scss";
+import "./ListCardComponent.scss";
 import CardModel from "../../../model/Card";
-import CardComponent from "../card/Card";
+import CardComponent from "../card-details/CardComponent";
 import AddNewCardComponent from "../add-card/AddNewCardComponent";
 import { getCardList } from "../../../redux/selectors/card.selector";
 

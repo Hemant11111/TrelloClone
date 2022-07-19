@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add task Component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="add-task-container"
+  >
+    <form
+      class="custom-form"
+    >
+      <input
+        class=" input-form"
+        placeholder="Add Task..."
+        value=""
+      />
+    </form>
+    <button
+      class="add-task-button trello-icon-button"
+      data-testid="add-task-button"
+      disabled=""
+    >
+      <i
+        class="fa fa-plus"
+      />
+    </button>
+  </div>
+</DocumentFragment>
+`;

@@ -18,7 +18,7 @@ export default function AddNewCardComponent(props: AddNewCardComponentProps) {
 
     return (
         <div className="add-new-card-container">
-            <button className="add-new-card-btn" onClick={handleAddCardClick}>
+            <button data-testid="add-new-card-button" className="add-new-card-btn" onClick={handleAddCardClick}>
                 <i className="fa fa-plus"/>
             </button>
         </div>

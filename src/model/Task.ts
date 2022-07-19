@@ -1,15 +1,13 @@
 import { Model } from "./Model";
-import { StringUtil } from "../util/StringUtil";
+import { StringUtil } from "../utils/StringUtil";
 
 export default class TaskModel extends Model {
-    title: string | undefined;
-    cardId: string | undefined;
+    constructor(public title: string, public cardId: string) {
+        super(StringUtil.generateRandomString());
+    }
 
     // Backend logic...
     static newInstance(title: string, cardId: string) {
-        const instance = new this(StringUtil.generateRandomString(6));
-        instance.title = title;
-        instance.cardId = cardId;
-        return instance;
+        return new this(title, cardId);
     }
 }
